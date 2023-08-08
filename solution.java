@@ -1,17 +1,11 @@
-import java.util.*;
+public static boolean canFinish(int numCourses, int[][] prerequisites) {
+        ArrayList<Integer>[] graph = new ArrayList[numCourses];
+        for (int i = 0; i < numCourses; i++)
+            graph[i] = new ArrayList<>();
 
-public class Main {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the number of courses:");
-        int numCourses = scanner.nextInt();
-        System.out.println("Enter the number of prerequisites:");
-        int numPrerequisites = scanner.nextInt();
-        int[][] prerequisites = new int[numPrerequisites][2];
-        for (int i = 0; i < numPrerequisites; i++) {
-            System.out.println("Enter prerequisite " + (i + 1) + ":");
-            prerequisites[i][0] = scanner.nextInt();
-            prerequisites[i][1] = scanner.nextInt();
-        }
+        boolean[] visited = new boolean[numCourses];
+        boolean[] stack = new boolean[numCourses];
+
+        for (int[] prerequisite : prerequisites)
+            graph[prerequisite[1]].add(prerequisite[0]);
     }
-}
